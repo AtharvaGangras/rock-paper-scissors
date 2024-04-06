@@ -12,26 +12,25 @@ use while loop to run this game infinitely and give the user an option to quit
 
 function getComputerChoice(){
     let choice = Math.floor(Math.random()*3);
-    return choice;
+    if(choice === 0) return "rock";
+    else if(choice ===1) return "paper";
+    return "scissors";
 }
 function getUserChoice(){
     let choice = prompt("Enter Your Move:");
     choice = choice.toLowerCase();
-    
-    switch(choice)
+    choice = choice.trim();
+    if(choice ==="rock"||choice==="paper"||choice==="scissors")
     {
-        case "rock":
-            choice = 0;
-            break;
-        case "paper":
-            choice = 1;
-            break;
-        case "scissors":
-            choice = 2;
-            break;
-        default:
-            choice = -1;
-
+        return choice;
     }
-    return choice;
+    return "Invalid";
+    
+}
+
+function playRound(computerChoice,userChoice){
+    if(userChoice === -1) return -1;
+
+    if(computerChoice === userChoice) return "Tie";
+    else if(computerChoice===2 && computerChoice===1)
 }
