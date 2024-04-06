@@ -32,7 +32,7 @@ function getUserChoice() {
 
 function playRound(computerChoice, userChoice) {
 
-    if (computerChoice === userChoice) return "Tie";
+    if (computerChoice === userChoice) return "tie";
     else if (computerChoice === "rock" && userChoice === "paper") return "user";
     else if (computerChoice === "rock" && userChoice === "scissors") return "computer";
     else if (computerChoice === "paper" && userChoice === "rock") return "computer";
@@ -43,11 +43,14 @@ function playRound(computerChoice, userChoice) {
 
 function playGame(){
     let wins = 0;
-    for(let i = 0;i<5;i++)
+    for(let i = 5;i>0;i--)
     {
+        console.log(`${i} rounds remain.`);
         let computerChoice = getComputerChoice();
         let userChoice = getUserChoice();
         let winner = playRound(computerChoice,userChoice);
+        if(winner!=="tie") console.log(`${winner} won!`);
+        else console.log("It's a tie!");
         if(winner === "user") wins++;
     }
     return wins;
@@ -57,8 +60,8 @@ while(true)
 {
     let wins = playGame();
     alert(`You have won ${wins} times out of 5!`);
-    let ans = prompt("play another round?");
-    ans=== ans.toLowerCase().trim();
-    if(ans !== "yes") break;
+    let ans = confirm("play another round?");
+    if(ans === false) break;
+    console.clear();
 }
 
