@@ -55,7 +55,10 @@ function playGame(){
 
 while(true)
 {
-    
-    playGame();
+    let wins = playGame();
+    alert(`You have won ${wins} times out of 5!`);
+    let ans = prompt("play another round?");
+    ans=== ans.toLowerCase().trim();
+    if(ans !== "yes") break;
 }
 
