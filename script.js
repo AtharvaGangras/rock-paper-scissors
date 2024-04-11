@@ -16,14 +16,15 @@ function playRound(computerChoice, userChoice) {
 }
 
 const buttons = document.querySelectorAll('button');
+const div  = document.querySelector('div');
 
 buttons.forEach((button) => {
     button.addEventListener('click',(e)=>{
         let userChoice = e.target.id;
         let computerChoice = getComputerChoice();
-        console.log(playRound(computerChoice,userChoice))
+        
+        div.textContent =  playRound(computerChoice,userChoice);
 
     })
 })
 
-let 
